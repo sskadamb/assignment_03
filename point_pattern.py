@@ -1,4 +1,4 @@
-import math  # I am guessing that you will need to use the math module
+import math
 
 """
 Below are 5 functions (we will talk about what
@@ -11,23 +11,9 @@ functions so that the tests pass.
 """
 
 def manhattan_distance(a, b):
-    """
-    Compute the Manhattan distance between two points
 
-    Parameters
-    ----------
-    a : tuple
-        A point in the form (x,y)
 
-    b : tuple
-        A point in the form (x,y)
-
-    Returns
-    -------
-    distance : float
-               The Manhattan distance between the two points
-    """
-    distance =  None # Add the algorithm to compute manhattan distance here
+    distance =  abs(a[0]-b[0]) + abs(a[1]-b[1])
     return distance
 
 
@@ -49,7 +35,8 @@ def euclidean_distance(a, b):
     distance : float
                The Euclidean distance between the two points
     """
-    distance = None  # Add the euclidean distance algorithm here
+    sq = (a[0]-b[0])**2 + (a[1]-b[1])**2
+    distance = math.sqrt(sq)
     return distance
 
 
@@ -87,8 +74,8 @@ def shift_point(point, x_shift, y_shift):
     x = getx(point)
     y = gety(point)
 
-    x_new = None  # Add the logic to shift x here
-    y_new = None  # Add the logic to shift y here
+    x_new = x + x_shift  # Add the logic to shift x here
+    y_new = y + y_shift  # Add the logic to shift y here
 
     return x_new, y_new
 
@@ -109,7 +96,12 @@ def check_coincident(a, b):
     equal : bool
             Whether the points are equal
     """
-    return None  # Add the logic to check if coincident here
+
+    if (a[0]==b[0] and a[1]==b[1]):
+        equal = True;
+    else:
+        equal = False;
+    return equal # Add the logic to check if coincident here
 
 
 def check_in(point, point_list):
@@ -124,7 +116,12 @@ def check_in(point, point_list):
     point_list : list
                  in the form [point, point_1, point_2, ..., point_n]
     """
-    return None # Add the logic to check if a point is in the point list here
+    if(point in point_list):
+            result = True
+
+    else:
+        result = False
+    return result # Add the logic to check if a point is in the point list here
 
 
 def getx(point):
